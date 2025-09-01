@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-my-study"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"ls_SqlServer1_password": {
+			"value": ""
+		},
+		"ls_copy_data_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsmystudy.dfs.core.windows.net/"
+		},
+		"ls_SqlServer1_properties_typeProperties_server": {
+			"value": "mystudy.database.windows.net"
+		},
+		"ls_SqlServer1_properties_typeProperties_database": {
+			"value": "dbtest"
+		},
+		"ls_SqlServer1_properties_typeProperties_userName": {
+			"value": "sp_admin"
+		},
+		"ls_copy_data_properties_typeProperties_url": {
+			"value": "https://mystudyasdlsgen2.dfs.core.windows.net/"
+		}
+	}
+}
