@@ -1,0 +1,39 @@
+{
+	"name": "ds_SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"inv_table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "item_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "item_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quantity",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "geo",
+			"table": {
+				"value": "@dataset().inv_table_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
