@@ -1,0 +1,16 @@
+{
+	"name": "ls_copy_data",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://mystudyasdlsgen2.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQERGRjc5QTFCLTUwQzItNEYwQS05OUEwLUY2QkUyQUE5QzU3Nl81MmU2ZWM2Zi03NTEwLTQ3MWMtYTUwMC1jZTcwYjkxZjRlNTUiDQp9"
+		},
+		"connectVia": {
+			"referenceName": "ir-my-study-integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
