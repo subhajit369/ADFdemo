@@ -95,7 +95,7 @@
 					{
 						"activity": "Script1",
 						"dependencyConditions": [
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
