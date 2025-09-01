@@ -1,0 +1,30 @@
+{
+	"name": "ds_ConfigTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "file_postfix",
+				"type": "nvarchar"
+			},
+			{
+				"name": "file_type",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "geo",
+			"table": "config"
+		}
+	}
+}
