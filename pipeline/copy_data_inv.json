@@ -110,7 +110,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT id, file_postfix, file_type FROM geo.config",
+						"sqlReaderQuery": "SELECT id, src_file, dest_table, col_mapping FROM geo.config",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
