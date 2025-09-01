@@ -1,0 +1,9 @@
+{
+	"name": "adf-my-study",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e5596e29-fab6-4c79-a45b-3bbbf19bafad",
+		"tenantId": "8b5506c0-a773-49b5-b61b-74dec5918719"
+	}
+}
