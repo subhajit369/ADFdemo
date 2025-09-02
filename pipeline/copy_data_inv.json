@@ -16,15 +16,39 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "[{\"source\":{\"name\":\"id\",\"type\":\"String\",\"physicalType\":\"String\"},\"sink\":{\"name\":\"item_id\",\"type\":\"Int32\",\"physicalType\":\"int\"}},{\"source\":{\"name\":\"item_name\",\"type\":\"String\",\"physicalType\":\"String\"},\"sink\":{\"name\":\"item_name\",\"type\":\"String\",\"physicalType\":\"nvarchar\"}}]",
+						"value": "@activity('get_src_dest_tables').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
 					"activities": [
 						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "testvar",
+								"value": {
+									"value": "@item().col_mapping",
+									"type": "Expression"
+								}
+							}
+						},
+						{
 							"name": "Load DB table",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Set variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -52,7 +76,7 @@
 								},
 								"enableStaging": false,
 								"translator": {
-									"value": "@item().col_mapping",
+									"value": "@json(item().col_mapping)",
 									"type": "Expression"
 								}
 							},
@@ -110,7 +134,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT id, src_file, dest_table, col_mapping FROM geo.config WHERE dest_table = 'item'",
+						"sqlReaderQuery": "SELECT id, src_file, dest_table, col_mapping FROM geo.config",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -148,6 +172,11 @@
 				}
 			}
 		],
+		"variables": {
+			"testvar": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
