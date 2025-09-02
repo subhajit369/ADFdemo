@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('get_src_dest_tables').output.value",
+						"value": "[{\"source\":{\"name\":\"id\",\"type\":\"String\",\"physicalType\":\"String\"},\"sink\":{\"name\":\"item_id\",\"type\":\"Int32\",\"physicalType\":\"int\"}},{\"source\":{\"name\":\"item_name\",\"type\":\"String\",\"physicalType\":\"String\"},\"sink\":{\"name\":\"item_name\",\"type\":\"String\",\"physicalType\":\"nvarchar\"}}]",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -110,7 +110,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT id, src_file, dest_table, col_mapping FROM geo.config",
+						"sqlReaderQuery": "SELECT id, src_file, dest_table, col_mapping FROM geo.config WHERE dest_table = 'item'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -148,14 +148,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"inv_file": {
-				"type": "string"
-			},
-			"inv_table": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	}
 }
