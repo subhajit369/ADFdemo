@@ -45,6 +45,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false) ~> inventory",
 				"source(output(",
 				"          id as string,",
